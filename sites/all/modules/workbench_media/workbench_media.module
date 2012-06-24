@@ -73,6 +73,10 @@ function workbench_media_workbench_create_alter(&$output) {
  *   2. We may want to extend the media form functionality in the future.
  */
 function workbench_media_add($form, &$form_state) {
+  if (empty($form_state['build_info']['args'])) {
+    // media module expects a parameters array
+    $form_state['build_info']['args'][] = array();
+  }
   $form = drupal_get_form('media_add_upload', $form, $form_state);
   $form['#submit'][] = 'workbench_media_add_submit';
   return $form;
@@ -90,6 +94,7 @@ function workbench_media_add_submit($form, &$form_state) {
   // Was a file successfully uploaded?
   if (!empty($form_state['values']['upload']->fid)) {
     $form_state['redirect'] = array('media/' . $form_state['values']['upload']->fid . '/edit', array('query' => array('destination' => $dest)));
+//    $form_state['redirect'] = array('file/' . $form_state['values']['upload']->fid . '/edit', array('query' => array('destination' => $dest)));
   }
   else {
     $form_state['redirect'] = array($dest);
