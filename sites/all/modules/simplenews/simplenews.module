@@ -2796,7 +2796,7 @@ function simplenews_node_access($node, $op, $account) {
     $result = $query->execute();
     if ($result->rowCount()) {
       $status = $result->fetch();
-      if ($status->status == SIMPLENEWS_STATUS_SEND_PENDING) {
+      if ($status && $status->status == SIMPLENEWS_STATUS_SEND_PENDING) {
         drupal_set_message(t('You can\'t delete this newsletter because it has not been sent to all its subscribers.'), 'warning');
         return NODE_ACCESS_DENY;
       }
