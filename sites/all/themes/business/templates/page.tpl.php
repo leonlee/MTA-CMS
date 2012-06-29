@@ -143,10 +143,10 @@
   <div class="clear"></div>
   <div id="copyright">
     <?php if (theme_get_setting('footer_copyright')): ?>
-      <?php print t('Copyright'); ?> &copy; <?php echo date("Y"); ?>, <?php print $site_name; ?>.
+      <?php print t('Copyright'); ?> &copy; <?php echo date("Y"); ?>, <?php print 'MTA';// $site_name; ?>.
     <?php endif; ?>
     <?php if (theme_get_setting('footer_credits')): ?>
-      <span class="credits"><?php print t('Developed by'); ?>  <a href="http://www.riderzen.com">BeijingThree</a>.</span>
+      <span class="credits"><?php print t('Developed by'); ?>  <a href="http://www.riderzen.com">HK Polytechnic University</a>.</span>
     <?php endif; ?>
   </div>
   <?php endif; ?>
